@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AK_CollectionsOrganizer.Views.AllCollectionsPage"
+             Title="AllCollectionsPage">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Add Collection"
+            x:Name="AddCollection"
+            Clicked="OnAddCollectionClicked"
+            IconImageSource="{FontImage Glyph='+', Color='White', Size='22'}"/>
+
+    </ContentPage.ToolbarItems>
+    
+    <ScrollView>
+        
+        <VerticalStackLayout>
+            
+            <Label 
+                Text="Greetings, welcome to your Collectables Archives!"
+                FontSize="Medium"
+                Margin="20"
+                Padding="10"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <CollectionView
+                x:Name="AllCollectionsCollectionView"
+                Margin="20"
+                SelectionMode="Single"
+                ItemsSource="{Binding AllCollections}"
+                SelectionChanged="AllCollectionsCollectionView_SelectionChanged">
+
+                <CollectionView.ItemsLayout>
+                    
+                    <LinearItemsLayout
+                        Orientation="Vertical"
+                        ItemSpacing="10"/>
+                    
+                </CollectionView.ItemsLayout>
+                
+                <CollectionView.ItemTemplate>
+                    
+                    <DataTemplate>
+                        
+                        <Grid 
+                            Margin="20"
+                            ColumnDefinitions="*,*">
+                            
+                            <Label
+                                Grid.Column="0"
+                                Text="{Binding Name}"/>
+                            
+                            <Label 
+                                Grid.Column="1"
+                                Text="{Binding Description}"/>
+                            
+                        </Grid>
+                        
+                    </DataTemplate>
+                    
+                </CollectionView.ItemTemplate>
+                
+            </CollectionView>
+            
+        </VerticalStackLayout>
+    
+    </ScrollView>
+    
+</ContentPage>
+    
+    
+<!--<CollectionView
+    x:Name="SchoolClassesCollectionView"
+    Margin="20"
+    SelectionMode="Single"
+    ItemsSource="{Binding StudentsInClass}"
+    >
+
+    <CollectionView.ItemsLayout>
+
+        
+
+    </CollectionView.ItemsLayout>
+
+    <CollectionView.ItemTemplate>
+
+        <DataTemplate>
+
+            <StackLayout>
+
+                <Label 
+        Text="{Binding Name}" 
+        FontSize="22"/>
+                <Label 
+                    Text="{Binding Surname}" 
+                    FontSize="22"/>
+
+            </StackLayout>
+
+        </DataTemplate>
+
+    </CollectionView.ItemTemplate>
+
+</CollectionView>-->

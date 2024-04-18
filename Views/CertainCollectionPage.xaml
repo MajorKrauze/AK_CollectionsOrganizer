@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AK_CollectionsOrganizer.Views.CertainCollectionPage"
+             Title="CertainCollectionPage">
+        <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Return to AllCollectionsPage"
+            x:Name="REturnCollectable"
+            Clicked="OnReturnCollectableClicked"
+            IconImageSource="{FontImage Glyph='^', Color='White', Size='22'}"/>
+        <ToolbarItem
+        Text="Add Collectable"
+        x:Name="AddCollectable"
+        Clicked="OnAddCollectableClicked"
+        IconImageSource="{FontImage Glyph='+', Color='White', Size='22'}"/>
+
+        </ContentPage.ToolbarItems>
+
+        <VerticalStackLayout>
+
+            <Label 
+                x:Name="CollectionName"
+        
+                FontSize="Medium"
+                Padding="10"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            
+            
+        <!--Text="{Binding CollectionName}"-->
+        <CollectionView
+        x:Name="CertainCollection"
+        Margin="20"
+        SelectionMode="Single"
+        SelectionChanged="CertainCollection_SelectionChanged"
+            
+        >
+            <!--ItemsSource="{Binding CertainCollection}"-->
+
+            <CollectionView.ItemsLayout>
+                    <LinearItemsLayout
+                Orientation="Vertical"
+                ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid 
+                    ColumnDefinitions="*,*">
+                            <Label
+                        Grid.Column="0"
+                        Text="{Binding Name}"/>
+                            <Label 
+                        Grid.Column="1"
+                        Text="{Binding Description}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+</ContentPage>

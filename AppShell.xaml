@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AK_CollectionsOrganizer.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AK_CollectionsOrganizer"
+    xmlns:views="clr-namespace:AK_CollectionsOrganizer.Views"
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    
+    <ShellContent
+        Title="AddCollectionPage"
+        ContentTemplate="{DataTemplate views:AddCollectionPage}"
+        Route="AddCollectionPage" />
+    
+    <ShellContent
+        Title="AddCollectablePage"
+        ContentTemplate="{DataTemplate views:AddCollectablePage}"
+        Route="AddCollectablePage" />
+
+    <ShellContent
+        Title="AllCollectionsPage"
+        ContentTemplate="{DataTemplate views:AllCollectionsPage}"
+        Route="AllCollectionsPage" />
+
+    <ShellContent
+        Title="CertainCollectionPage"
+        ContentTemplate="{DataTemplate views:CertainCollectionPage}"
+        Route="CertainCollectionPage" />
+
+    <!--<ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate views:AllCollectablePage}"
+        Route="AddCollectablePage" />-->
+
+</Shell>
